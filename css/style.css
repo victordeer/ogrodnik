@@ -193,7 +193,8 @@ footer .kontakt-stopka a .fas {
 
 /* 1. Domyślnie (telefony) - ukryj znacznik <br> */
 .desktop-break {
-    display: none;
+    display: none; /* Upewnij się, że nie jest widoczny */
+    visibility: hidden; /* Dodatkowe ukrycie */
 }
 
 /* Ustawienia dla dużych ekranów (układ Logo Lewo, Kontakt Prawo) */
@@ -229,8 +230,9 @@ footer .kontakt-stopka a .fas {
     }
 
     .desktop-break {
-        /* Pokaż znacznik, wymuszając złamanie linii */
+        /* Wymuś wyświetlanie, przywracając domyślne zachowanie <br> */
         display: block;
+        visibility: visible;
     }
 
     /* 3. Kontakty (Prawa kolumna, dolne wyrównanie) */
