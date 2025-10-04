@@ -1,4 +1,10 @@
-/* Podstawowe resetowanie stylów i czcionka */
+/* --- Reset & base --- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 body {
     font-family: sans-serif;
     margin: 0;
@@ -7,21 +13,94 @@ body {
     color: #333;
 }
 
+/* --- Header --- */
 header {
-    background-color: #38761d; /* Ciemna zieleń */
+    background-color: #38761d;
     color: white;
     padding: 20px;
 }
 
+.header-content {
+    display: grid;
+    grid-template-areas:
+        "logo"
+        "title"
+        "contact";
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.header-logo {
+    grid-area: logo;
+}
+
+.header-title {
+    grid-area: title;
+    font-size: 1.2em;
+    margin: 0;
+    font-weight: normal;
+    color: #f0f0f0;
+}
+
+.kontakt-szybki {
+    grid-area: contact;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.kontakt-szybki a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.kontakt-szybki a:hover {
+    text-decoration: underline;
+}
+
+.kontakt-szybki span {
+    margin-right: 8px;
+    font-size: 1.1em;
+}
+
+/* Desktop header layout */
+@media (min-width: 768px) {
+    .header-content {
+        grid-template-areas: "logo title contact";
+        grid-template-columns: 1fr 2fr 1fr;
+        align-items: center;
+        text-align: left;
+    }
+
+    .header-title {
+        font-size: 1.6em;
+        text-align: center;
+    }
+
+    .kontakt-szybki {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .kontakt-szybki a {
+        justify-content: flex-end;
+    }
+}
+
+/* --- Main layout --- */
 .container {
     max-width: 1200px;
     margin: 20px auto;
     padding: 0 15px;
 }
 
-/* --- Responsywny układ z media queries --- */
-
-/* Domyślny układ dla małych ekranów (telefony) */
+/* Services */
 .uslugi {
     background-color: white;
     padding: 20px;
@@ -37,39 +116,26 @@ header {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Układ dla większych ekranów (powyżej 768px - tablety i desktop) */
+/* Two-column layout on larger screens */
 @media (min-width: 768px) {
     .container {
         display: grid;
-        grid-template-columns: 1fr 2fr; /* Usługi na 1/3, Galeria na 2/3 szerokości */
+        grid-template-columns: 1fr 2fr;
         gap: 30px;
     }
 }
 
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #333;
-    color: white;
-    margin-top: 30px;
-}
-
-/* --- Gallery Styles --- */
-
+/* --- Gallery --- */
 .gallery-grid {
-    /* Używamy CSS Grid dla układu */
     display: grid;
-    /* Domyślnie na telefonach: jedna kolumna */
     grid-template-columns: 1fr;
-    gap: 15px; /* Odstęp między zdjęciami */
+    gap: 15px;
     margin-top: 20px;
 }
 
 .gallery-item img {
-    /* Zdjęcie musi wypełnić całą przestrzeń w swoim kontenerze */
     width: 100%;
-    height: 100%;
-    /* Utrzymanie proporcji zdjęcia i wypełnienie miejsca */
+    height: auto;
     object-fit: cover;
     border-radius: 4px;
     transition: transform 0.3s ease;
@@ -79,66 +145,41 @@ footer {
     transform: scale(1.02);
 }
 
-/* --- Responsywność dla Tabletów i Desktopów --- */
-
 @media (min-width: 600px) {
-    /* Na tabletach (600px i więcej): dwie kolumny */
     .gallery-grid {
         grid-template-columns: 1fr 1fr;
     }
 }
 
 @media (min-width: 992px) {
-    /* Na desktopach (992px i więcej): trzy kolumny */
     .gallery-grid {
         grid-template-columns: 1fr 1fr 1fr;
     }
 }
 
-/* --- Zaktualizowane style dla szybkich linków kontaktowych w nagłówku --- */
-.kontakt-szybki {
-    order: 3;
-    margin-top: 15px; /* Trochę więcej odstępu */
-    display: flex; /* Użyj flexbox do ułożenia obok siebie */
-    gap: 20px; /* Odstęp między linkami */
-    flex-wrap: wrap; /* Złam linię na mniejszych ekranach */
-    justify-content: center; /* Wyśrodkuj elementy */
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    margin-top: 30px;
 }
 
-.kontakt-szybki a {
-    color: white; /* Biały tekst, pasuje do ciemnej zieleni */
-    text-decoration: none;
-    font-weight: bold;
-    display: flex; /* Użyj flexbox, aby ikona i tekst były obok siebie */
-    align-items: center; /* Wyrównaj ikonę i tekst do środka */
-}
-
-.kontakt-szybki a:hover {
-    text-decoration: underline;
-}
-
-.kontakt-szybki a .fas {
-    margin-right: 8px; /* Odstęp między ikoną a tekstem */
-    font-size: 1.1em; /* Nieco większa ikona */
-}
-
-/* --- Zaktualizowane style kontaktów w stopce --- */
-footer .kontakt-stopka { /* Upewnij się, że te style dotyczą tylko stopki */
+footer .kontakt-stopka {
     margin-bottom: 10px;
     padding-bottom: 10px;
     border-bottom: 1px solid #555;
-    display: block;
 }
 
 footer .kontakt-stopka p {
-    margin: 5px 0; /* Mniejszy margines między paragrafami */
-    text-align: center;
+    margin: 5px 0;
 }
 
 footer .kontakt-stopka a {
-    color: #b3ffb3; /* Jasny, widoczny kolor na ciemnym tle stopki */
+    color: #ccffcc;
     text-decoration: none;
-    display: inline-flex; /* Flexbox dla ikony i tekstu */
+    display: inline-flex;
     align-items: center;
 }
 
@@ -146,112 +187,15 @@ footer .kontakt-stopka a:hover {
     text-decoration: underline;
 }
 
-footer .kontakt-stopka a .fas {
-    margin-right: 8px; /* Odstęp między ikoną a tekstem */
+footer .kontakt-stopka span {
+    margin-right: 8px;
     font-size: 1em;
 }
 
-/* --- Stylizacja Logo w nagłówku --- */
+/* --- Logo --- */
 .logo {
-    max-width: 120px; /* Zmniejszamy logo, by zmieściło się obok tekstu */
+    max-width: 120px;
     height: auto;
-    margin: 0 auto 10px auto;
-}
-
-/* --- NOWE STYLE NAGŁÓWKA DLA UKŁADU (LOGO LEWO, KONTAKT PRAWO) --- */
-
-.header-content-flex {
-    /* Utrzymujemy Flexbox w Kolumnie, aby elementy były pod sobą na telefonach */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Wyśrodkowanie na telefonach */
-    width: 100%;
-    max-width: 1200px;
     margin: 0 auto;
-}
-
-.header-logo-group {
-    /* Usunięte display:flex, bo teraz logo jest samo w tym kontenerze */
-    text-align: center;
-    margin-bottom: 0; /* Usuń margines, bo h1 ma swój */
-    order: 1; /* Upewnij się, że jest na górze */
-}
-
-/* Ukryj wersję desktopową na telefonach */
-.header-desktop {
-    display: none;
-}
-
-/* Wersja mobilna, która jest domyślna */
-.header-mobile {
-    text-align: center;
-    order: 2;
-    margin-bottom: 15px;
-}
-
-/* Wersja mobilna, która jest domyślna */
-.header-mobile h1 {
-    font-size: 0.9em; /* Rozmiar na telefonach */
-    margin: 5px 0 0 0;
-    font-weight: normal;
-    color: #f0f0f0;
-}
-
-/* Ustawienia dla dużych ekranów (układ Logo Lewo, Kontakt Prawo) */
-@media (min-width: 768px) {
-    header {
-        padding: 15px 20px; /* Mniejszy padding na bocznych krawędziach */
-    }
-
-    .header-content-flex {
-        /* Ustawienia Gridu są poprawne: 1fr (Logo) 2fr (Hasło) 1fr (Kontakty) */
-        align-items: flex-start; /* Wyrównanie do GÓRY (top) */
-        display: grid;
-        grid-template-columns: 1fr 2fr 1fr;
-        gap: 10px;
-    }
-
-    /* 1. Logo (Lewa kolumna) */
-    .header-logo-group {
-        text-align: left;
-        margin-bottom: 0;
-        order: initial; /* Resetujemy kolejność Gridu */
-    }
-
-    /* Ukryj wersję mobilną na dużych ekranach */
-    .header-mobile {
-        display: none;
-    }
-
-    /* Pokaż wersję desktopową i nadaj jej większy styl */
-    .header-desktop {
-        display: block;
-
-        text-align: center;
-        order: 2;
-        margin-bottom: 15px;
-    }
-
-    .header-desktop h1 {
-        font-size: 1.6em; /* ZWIĘKSZONY rozmiar */
-        text-align: center;
-        margin: 0 auto;
-        font-weight: normal; /* Upewnij się, że nie jest pogrubiony */
-        color: #f0f0f0;
-    }
-
-    /* 3. Kontakty (Prawa kolumna, dolne wyrównanie) */
-    .kontakt-szybki {
-        order: initial; /* Resetujemy kolejność Gridu */
-        margin-top: 0;
-        flex-direction: column;
-        align-items: flex-end;
-        align-self: flex-end; /* KLUCZOWE: Wyrównanie kontaktów do DOŁU */
-    }
-
-    /* Dopasowanie linków kontaktowych, by usunąć odstęp między ikonami a linkami,
-       gdy są w kolumnie i wyjustowane do prawej. */
-    .kontakt-szybki a {
-        justify-content: flex-end; /* Przesuwa ikonę i tekst razem na prawo */
-    }
+    display: block;
 }
