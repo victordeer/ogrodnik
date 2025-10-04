@@ -131,13 +131,15 @@ footer .kontakt-stopka { /* Upewnij się, że te style dotyczą tylko stopki */
 
 footer .kontakt-stopka p {
     margin: 5px 0; /* Mniejszy margines między paragrafami */
+    text-align: center;
 }
 
 footer .kontakt-stopka a {
     color: #b3ffb3; /* Jasny, widoczny kolor na ciemnym tle stopki */
     text-decoration: none;
-    display: flex; /* Flexbox dla ikony i tekstu */
+    display: inline-flex; /* Flexbox dla ikony i tekstu */
     align-items: center;
+    justify-content: center;
 }
 
 footer .kontakt-stopka a:hover {
@@ -151,9 +153,10 @@ footer .kontakt-stopka a .fas {
 
 /* --- Stylizacja Logo w nagłówku --- */
 .logo {
-    max-width: 200px; /* Maksymalna szerokość logo */
-    height: auto; /* Zachowaj proporcje */
-    margin-bottom: 10px; /* Odstęp pod logo */
+    max-width: 120px; /* Zmniejszamy logo, by zmieściło się obok tekstu */
+    height: auto;
+    margin-right: 15px; /* Dodajemy odstęp od tekstu (h1) */
+    margin-bottom: 0; /* Usuwamy dolny margines, bo będą w rzędzie */
 }
 
 /* --- NOWE STYLE NAGŁÓWKA DLA UKŁADU (LOGO LEWO, KONTAKT PRAWO) --- */
@@ -168,15 +171,23 @@ footer .kontakt-stopka a .fas {
 }
 
 .header-logo-group {
+    /* Używamy flexbox, aby h1 i logo były obok siebie na dużych ekranach */
+    display: flex;
+    align-items: center; /* Wyrównaj w pionie logo i tekst */
+    text-align: center; /* Pozostaw center na małe ekrany */
+    margin-bottom: 15px;
+}
+
+.header-logo-group {
     text-align: center;
     margin-bottom: 15px;
 }
 
 .header-logo-group h1 {
-    font-size: 1.1em; /* Zmniejsz rozmiar nagłówka/opisu */
+    font-size: 0.9em; /* ZMIEŃ: Zmniejsz rozmiar nagłówka/opisu na małych ekranach */
     margin: 0;
     font-weight: normal;
-    color: #f0f0f0; /* Jasny kolor tekstu na ciemnym tle */
+    color: #f0f0f0;
 }
 
 /* Ustawienia dla dużych ekranów (układ Logo Lewo, Kontakt Prawo) */
@@ -195,12 +206,19 @@ footer .kontakt-stopka a .fas {
     .header-logo-group {
         text-align: left;
         margin-bottom: 0;
-        /* Nadaj grupie logo trochę więcej miejsca, jeśli to potrzebne */
     }
 
-    /* Dopasowanie kontaktów w nagłówku, aby były w rzędzie */
+    /* KLUCZOWA ZMIANA: Kontakty w nagłówku w pionie i w prawym dolnym rogu */
     .kontakt-szybki {
         margin-top: 0;
-        justify-content: flex-end; /* Wyrównaj elementy do prawej */
+        flex-direction: column; /* Ustawienie kontaktów w kolumnie */
+        align-items: flex-end; /* Wyrównanie elementów do prawej */
+        justify-content: flex-end; /* Przyklejenie ich do dolnej krawędzi kontenera flex */
+    }
+
+    /* Dopasowanie linków kontaktowych, by usunąć odstęp między ikonami a linkami,
+       gdy są w kolumnie i wyjustowane do prawej. */
+    .kontakt-szybki a {
+        justify-content: flex-end; /* Przesuwa ikonę i tekst razem na prawo */
     }
 }
