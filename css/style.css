@@ -184,6 +184,8 @@ footer .kontakt-stopka a .fas {
 
 /* Wersja mobilna, która jest domyślna */
 .header-mobile {
+    display: block;
+
     text-align: center;
     order: 2;
     margin-bottom: 15px;
@@ -225,13 +227,14 @@ footer .kontakt-stopka a .fas {
 
     /* Pokaż wersję desktopową i nadaj jej większy styl */
     .header-desktop {
+        display: block;
+
         text-align: center;
         order: 2;
         margin-bottom: 15px;
     }
 
     .header-desktop h1 {
-        display: block; /* Pokaż go */
         font-size: 1.6em; /* ZWIĘKSZONY rozmiar */
         text-align: center;
         margin: 0 auto;
