@@ -97,6 +97,7 @@ footer {
 
 /* --- Zaktualizowane style dla szybkich linków kontaktowych w nagłówku --- */
 .kontakt-szybki {
+    order: 3;
     margin-top: 15px; /* Trochę więcej odstępu */
     display: flex; /* Użyj flexbox do ułożenia obok siebie */
     gap: 20px; /* Odstęp między linkami */
@@ -160,23 +161,31 @@ footer .kontakt-stopka a .fas {
 /* --- NOWE STYLE NAGŁÓWKA DLA UKŁADU (LOGO LEWO, KONTAKT PRAWO) --- */
 
 .header-content-flex {
+    /* Utrzymujemy Flexbox w Kolumnie, aby elementy były pod sobą na telefonach */
     display: flex;
-    flex-direction: column; /* Domyślnie na telefonach: Logo na górze, Kontakt na dole */
+    flex-direction: column;
     align-items: center; /* Wyśrodkowanie na telefonach */
     width: 100%;
-    max-width: 1200px; /* Ogranicz szerokość, aby nie rozciągało się za bardzo */
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 .header-logo-group {
-    /* Używamy flexbox, aby h1 i logo były obok siebie na dużych ekranach */
-    align-items: center; /* Wyrównaj w pionie logo i tekst */
-    text-align: center; /* Pozostaw center na małe ekrany */
+    /* Usunięte display:flex, bo teraz logo jest samo w tym kontenerze */
+    text-align: center;
+    margin-bottom: 0; /* Usuń margines, bo h1 ma swój */
+    order: 1; /* Upewnij się, że jest na górze */
+}
+
+/* Nowy kontener dla hasła */
+.header-haslo {
+    text-align: center;
+    order: 2; /* Upewnij się, że H1 jest pod logo, a nad kontaktami */
     margin-bottom: 15px;
 }
 
-.header-logo-group h1 {
-    font-size: 0.9em; /* ZMIEŃ: Zmniejsz rozmiar nagłówka/opisu na małych ekranach */
+.header-haslo h1 {
+    font-size: 0.9em; /* Rozmiar na telefonach */
     margin: 5px 0 0 0;
     font-weight: normal;
     color: #f0f0f0;
@@ -189,39 +198,38 @@ footer .kontakt-stopka a .fas {
     }
 
     .header-content-flex {
-        flex-direction: row;
-        align-items: flex-start; /* Domyślne centrowanie w pionie */
-
-        /* KLUCZOWE: Używamy "grid" dla łatwiejszego wyrównania kolumn,
-           ale możemy też użyć flex z procentami szerokości */
+        /* Ustawienia Gridu są poprawne: 1fr (Logo) 2fr (Hasło) 1fr (Kontakty) */
+        align-items: flex-start; /* Wyrównanie do GÓRY (top) */
         display: grid;
-        grid-template-columns: 1fr 2fr 1fr; /* Podział na 1:2:1 (Logo, Hasło, Kontakty) */
-
+        grid-template-columns: 1fr 2fr 1fr;
         gap: 10px;
     }
 
     /* 1. Logo (Lewa kolumna) */
     .header-logo-group {
-        text-align: left; /* Przyklejamy logo do lewej */
+        text-align: left;
         margin-bottom: 0;
-        /* Hasło (H1) jest teraz centrowane w swojej 2. kolumnie, ale nie chcemy go na lewo */
+        order: initial; /* Resetujemy kolejność Gridu */
     }
 
-    /* 2. Hasło H1 (Środkowa kolumna) */
-    .header-logo-group h1 {
+    /* 2. Hasło (Środkowa kolumna) */
+    .header-haslo {
+        order: initial; /* Resetujemy kolejność Gridu */
+    }
+
+    .header-haslo h1 {
         font-size: 1.6em; /* ZWIĘKSZONY rozmiar */
         text-align: center; /* WYŚRODKOWANIE w 2. kolumnie */
-        margin: 0 auto; /* Upewniamy się, że nie ma lewego marginesu */
+        margin: 0 auto;
     }
 
     /* 3. Kontakty (Prawa kolumna, dolne wyrównanie) */
     .kontakt-szybki {
+        order: initial; /* Resetujemy kolejność Gridu */
         margin-top: 0;
         flex-direction: column;
-        align-items: flex-end; /* Wyrównanie elementów do prawej */
-
-        /* KLUCZOWE: Wyrównanie kontaktów do DOŁU swojej kolumny */
-        align-self: flex-end;
+        align-items: flex-end;
+        align-self: flex-end; /* KLUCZOWE: Wyrównanie kontaktów do DOŁU */
     }
 
     /* Dopasowanie linków kontaktowych, by usunąć odstęp między ikonami a linkami,
