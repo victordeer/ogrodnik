@@ -177,20 +177,20 @@ footer .kontakt-stopka a .fas {
     order: 1; /* Upewnij się, że jest na górze */
 }
 
-/* Nowy kontener dla hasła */
-.header-haslo {
+/* Ukryj wersję desktopową na telefonach */
+.header-desktop {
+    display: none;
+}
+
+/* Wersja mobilna, która jest domyślna */
+.header-mobile {
     text-align: center;
     order: 2;
     margin-bottom: 15px;
 }
 
-/* Ukryj wersję desktopową na telefonach */
-.header-haslo .desktop-only {
-    display: none;
-}
-
 /* Wersja mobilna, która jest domyślna */
-.header-haslo .mobile-only {
+.header-mobile h1 {
     font-size: 0.9em; /* Rozmiar na telefonach */
     margin: 5px 0 0 0;
     font-weight: normal;
@@ -218,18 +218,19 @@ footer .kontakt-stopka a .fas {
         order: initial; /* Resetujemy kolejność Gridu */
     }
 
-    /* 2. Hasło (Środkowa kolumna) */
-    .header-haslo {
-        order: initial;
-    }
-
     /* Ukryj wersję mobilną na dużych ekranach */
-    .header-haslo .mobile-only {
+    .header-mobile {
         display: none;
     }
 
     /* Pokaż wersję desktopową i nadaj jej większy styl */
-    .header-haslo .desktop-only {
+    .header-desktop {
+        text-align: center;
+        order: 2;
+        margin-bottom: 15px;
+    }
+
+    .header-desktop h1 {
         display: block; /* Pokaż go */
         font-size: 1.6em; /* ZWIĘKSZONY rozmiar */
         text-align: center;
