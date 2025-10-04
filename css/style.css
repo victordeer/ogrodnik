@@ -180,21 +180,21 @@ footer .kontakt-stopka a .fas {
 /* Nowy kontener dla hasła */
 .header-haslo {
     text-align: center;
-    order: 2; /* Upewnij się, że H1 jest pod logo, a nad kontaktami */
+    order: 2;
     margin-bottom: 15px;
 }
 
-.header-haslo h1 {
+/* Ukryj wersję desktopową na telefonach */
+.header-haslo .desktop-only {
+    display: none;
+}
+
+/* Wersja mobilna, która jest domyślna */
+.header-haslo .mobile-only {
     font-size: 0.9em; /* Rozmiar na telefonach */
     margin: 5px 0 0 0;
     font-weight: normal;
     color: #f0f0f0;
-}
-
-/* 1. Domyślnie (telefony) - ukryj znacznik <br> */
-.desktop-break {
-    display: none; /* Upewnij się, że nie jest widoczny */
-    visibility: hidden; /* Dodatkowe ukrycie */
 }
 
 /* Ustawienia dla dużych ekranów (układ Logo Lewo, Kontakt Prawo) */
@@ -220,19 +220,22 @@ footer .kontakt-stopka a .fas {
 
     /* 2. Hasło (Środkowa kolumna) */
     .header-haslo {
-        order: initial; /* Resetujemy kolejność Gridu */
+        order: initial;
     }
 
-    .header-haslo h1 {
+    /* Ukryj wersję mobilną na dużych ekranach */
+    .header-haslo .mobile-only {
+        display: none;
+    }
+
+    /* Pokaż wersję desktopową i nadaj jej większy styl */
+    .header-haslo .desktop-only {
+        display: block; /* Pokaż go */
         font-size: 1.6em; /* ZWIĘKSZONY rozmiar */
-        text-align: center; /* WYŚRODKOWANIE w 2. kolumnie */
+        text-align: center;
         margin: 0 auto;
-    }
-
-    .desktop-break {
-        /* Wymuś wyświetlanie, przywracając domyślne zachowanie <br> */
-        display: block;
-        visibility: visible;
+        font-weight: normal; /* Upewnij się, że nie jest pogrubiony */
+        color: #f0f0f0;
     }
 
     /* 3. Kontakty (Prawa kolumna, dolne wyrównanie) */
