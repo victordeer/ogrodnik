@@ -1,0 +1,56 @@
+/* Podstawowe resetowanie stylów i czcionka */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #38761d; /* Ciemna zieleń */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+/* --- Responsywny układ z media queries --- */
+
+/* Domyślny układ dla małych ekranów (telefony) */
+.uslugi {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.galeria {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Układ dla większych ekranów (powyżej 768px - tablety i desktop) */
+@media (min-width: 768px) {
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 2fr; /* Usługi na 1/3, Galeria na 2/3 szerokości */
+        gap: 30px;
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    margin-top: 30px;
+}
