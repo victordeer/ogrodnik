@@ -191,6 +191,11 @@ footer .kontakt-stopka a .fas {
     color: #f0f0f0;
 }
 
+/* 1. Domyślnie (telefony) - ukryj znacznik <br> */
+.desktop-break {
+    display: none;
+}
+
 /* Ustawienia dla dużych ekranów (układ Logo Lewo, Kontakt Prawo) */
 @media (min-width: 768px) {
     header {
@@ -221,6 +226,11 @@ footer .kontakt-stopka a .fas {
         font-size: 1.6em; /* ZWIĘKSZONY rozmiar */
         text-align: center; /* WYŚRODKOWANIE w 2. kolumnie */
         margin: 0 auto;
+    }
+
+    .desktop-break {
+        /* Pokaż znacznik, wymuszając złamanie linii */
+        display: block;
     }
 
     /* 3. Kontakty (Prawa kolumna, dolne wyrównanie) */
