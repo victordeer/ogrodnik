@@ -184,8 +184,6 @@ footer .kontakt-stopka a .fas {
 
 /* Wersja mobilna, która jest domyślna */
 .header-mobile {
-    display: block;
-
     text-align: center;
     order: 2;
     margin-bottom: 15px;
