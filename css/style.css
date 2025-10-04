@@ -54,3 +54,44 @@ footer {
     color: white;
     margin-top: 30px;
 }
+
+/* --- Gallery Styles --- */
+
+.gallery-grid {
+    /* Używamy CSS Grid dla układu */
+    display: grid;
+    /* Domyślnie na telefonach: jedna kolumna */
+    grid-template-columns: 1fr;
+    gap: 15px; /* Odstęp między zdjęciami */
+    margin-top: 20px;
+}
+
+.gallery-item img {
+    /* Zdjęcie musi wypełnić całą przestrzeń w swoim kontenerze */
+    width: 100%;
+    height: 100%;
+    /* Utrzymanie proporcji zdjęcia i wypełnienie miejsca */
+    object-fit: cover;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.02);
+}
+
+/* --- Responsywność dla Tabletów i Desktopów --- */
+
+@media (min-width: 600px) {
+    /* Na tabletach (600px i więcej): dwie kolumny */
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 992px) {
+    /* Na desktopach (992px i więcej): trzy kolumny */
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
