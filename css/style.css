@@ -11,7 +11,6 @@ header {
     background-color: #38761d; /* Ciemna zieleń */
     color: white;
     padding: 20px;
-    text-align: center;
 }
 
 .container {
@@ -157,10 +156,51 @@ footer .kontakt-stopka a .fas {
     margin-bottom: 10px; /* Odstęp pod logo */
 }
 
-/* Możesz też wyśrodkować logo, jeśli header jest tekstowo wyśrodkowany */
-.header-content {
+/* --- NOWE STYLE NAGŁÓWKA DLA UKŁADU (LOGO LEWO, KONTAKT PRAWO) --- */
+
+.header-content-flex {
     display: flex;
-    flex-direction: column;
-    align-items: center; /* Wyśrodkuj elementy w kolumnie */
-    justify-content: center;
+    flex-direction: column; /* Domyślnie na telefonach: Logo na górze, Kontakt na dole */
+    align-items: center; /* Wyśrodkowanie na telefonach */
+    width: 100%;
+    max-width: 1200px; /* Ogranicz szerokość, aby nie rozciągało się za bardzo */
+    margin: 0 auto;
+}
+
+.header-logo-group {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.header-logo-group h1 {
+    font-size: 1.1em; /* Zmniejsz rozmiar nagłówka/opisu */
+    margin: 0;
+    font-weight: normal;
+    color: #f0f0f0; /* Jasny kolor tekstu na ciemnym tle */
+}
+
+/* Ustawienia dla dużych ekranów (układ Logo Lewo, Kontakt Prawo) */
+@media (min-width: 768px) {
+    header {
+        padding: 15px 20px; /* Mniejszy padding na bocznych krawędziach */
+    }
+
+    .header-content-flex {
+        flex-direction: row; /* Zmień układ na horyzontalny (w jednym rzędzie) */
+        justify-content: space-between; /* Wyrównaj Logo na lewo, Kontakt na prawo */
+        align-items: center; /* Wyśrodkuj w pionie */
+        gap: 20px;
+    }
+
+    .header-logo-group {
+        text-align: left;
+        margin-bottom: 0;
+        /* Nadaj grupie logo trochę więcej miejsca, jeśli to potrzebne */
+    }
+
+    /* Dopasowanie kontaktów w nagłówku, aby były w rzędzie */
+    .kontakt-szybki {
+        margin-top: 0;
+        justify-content: flex-end; /* Wyrównaj elementy do prawej */
+    }
 }
