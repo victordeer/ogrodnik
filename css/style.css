@@ -139,7 +139,6 @@ footer .kontakt-stopka a {
     text-decoration: none;
     display: inline-flex; /* Flexbox dla ikony i tekstu */
     align-items: center;
-    justify-content: center;
 }
 
 footer .kontakt-stopka a:hover {
@@ -155,8 +154,7 @@ footer .kontakt-stopka a .fas {
 .logo {
     max-width: 120px; /* Zmniejszamy logo, by zmieściło się obok tekstu */
     height: auto;
-    margin-right: 15px; /* Dodajemy odstęp od tekstu (h1) */
-    margin-bottom: 0; /* Usuwamy dolny margines, bo będą w rzędzie */
+    margin: 0 auto 10px auto;
 }
 
 /* --- NOWE STYLE NAGŁÓWKA DLA UKŁADU (LOGO LEWO, KONTAKT PRAWO) --- */
@@ -172,20 +170,14 @@ footer .kontakt-stopka a .fas {
 
 .header-logo-group {
     /* Używamy flexbox, aby h1 i logo były obok siebie na dużych ekranach */
-    display: flex;
     align-items: center; /* Wyrównaj w pionie logo i tekst */
     text-align: center; /* Pozostaw center na małe ekrany */
     margin-bottom: 15px;
 }
 
-.header-logo-group {
-    text-align: center;
-    margin-bottom: 15px;
-}
-
 .header-logo-group h1 {
     font-size: 0.9em; /* ZMIEŃ: Zmniejsz rozmiar nagłówka/opisu na małych ekranach */
-    margin: 0;
+    margin: 5px 0 0 0;
     font-weight: normal;
     color: #f0f0f0;
 }
@@ -197,23 +189,39 @@ footer .kontakt-stopka a .fas {
     }
 
     .header-content-flex {
-        flex-direction: row; /* Zmień układ na horyzontalny (w jednym rzędzie) */
-        justify-content: space-between; /* Wyrównaj Logo na lewo, Kontakt na prawo */
-        align-items: center; /* Wyśrodkuj w pionie */
-        gap: 20px;
+        flex-direction: row;
+        align-items: center; /* Domyślne centrowanie w pionie */
+
+        /* KLUCZOWE: Używamy "grid" dla łatwiejszego wyrównania kolumn,
+           ale możemy też użyć flex z procentami szerokości */
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr; /* Podział na 1:2:1 (Logo, Hasło, Kontakty) */
+
+        gap: 10px;
     }
 
+    /* 1. Logo (Lewa kolumna) */
     .header-logo-group {
-        text-align: left;
+        text-align: left; /* Przyklejamy logo do lewej */
         margin-bottom: 0;
+        /* Hasło (H1) jest teraz centrowane w swojej 2. kolumnie, ale nie chcemy go na lewo */
     }
 
-    /* KLUCZOWA ZMIANA: Kontakty w nagłówku w pionie i w prawym dolnym rogu */
+    /* 2. Hasło H1 (Środkowa kolumna) */
+    .header-logo-group h1 {
+        font-size: 1.6em; /* ZWIĘKSZONY rozmiar */
+        text-align: center; /* WYŚRODKOWANIE w 2. kolumnie */
+        margin: 0 auto; /* Upewniamy się, że nie ma lewego marginesu */
+    }
+
+    /* 3. Kontakty (Prawa kolumna, dolne wyrównanie) */
     .kontakt-szybki {
         margin-top: 0;
-        flex-direction: column; /* Ustawienie kontaktów w kolumnie */
+        flex-direction: column;
         align-items: flex-end; /* Wyrównanie elementów do prawej */
-        justify-content: flex-end; /* Przyklejenie ich do dolnej krawędzi kontenera flex */
+
+        /* KLUCZOWE: Wyrównanie kontaktów do DOŁU swojej kolumny */
+        align-self: flex-end;
     }
 
     /* Dopasowanie linków kontaktowych, by usunąć odstęp między ikonami a linkami,
