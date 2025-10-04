@@ -96,33 +96,58 @@ footer {
     }
 }
 
-/* --- Stylizacja szybkich linków kontaktowych w nagłówku --- */
+/* --- Zaktualizowane style dla szybkich linków kontaktowych w nagłówku --- */
 .kontakt-szybki {
-    margin-top: 10px;
+    margin-top: 15px; /* Trochę więcej odstępu */
+    display: flex; /* Użyj flexbox do ułożenia obok siebie */
+    gap: 20px; /* Odstęp między linkami */
+    flex-wrap: wrap; /* Złam linię na mniejszych ekranach */
+    justify-content: center; /* Wyśrodkuj elementy */
 }
 
 .kontakt-szybki a {
-    color: white; /* Biały tekst, żeby pasował do tła nagłówka */
-    text-decoration: none; /* Usuń podkreślenie */
+    color: white; /* Biały tekst, pasuje do ciemnej zieleni */
+    text-decoration: none;
     font-weight: bold;
-    padding: 0 10px;
+    display: flex; /* Użyj flexbox, aby ikona i tekst były obok siebie */
+    align-items: center; /* Wyrównaj ikonę i tekst do środka */
 }
 
 .kontakt-szybki a:hover {
     text-decoration: underline;
 }
 
-/* Stylizacja kontaktów w stopce (jeśli potrzebne) */
-.kontakt-stopka {
+.kontakt-szybki a .fas {
+    margin-right: 8px; /* Odstęp między ikoną a tekstem */
+    font-size: 1.1em; /* Nieco większa ikona */
+}
+
+/* --- Zaktualizowane style kontaktów w stopce --- */
+footer .kontakt-stopka { /* Upewnij się, że te style dotyczą tylko stopki */
     margin-bottom: 10px;
     padding-bottom: 10px;
     border-bottom: 1px solid #555;
-    display: block; /* Domyślny styl dla kontaktów w stopce */
+    display: block;
 }
 
-.kontakt-stopka a {
-    color: #a0ffa0; /* Jasny, widoczny kolor na ciemnym tle stopki */
+footer .kontakt-stopka p {
+    margin: 5px 0; /* Mniejszy margines między paragrafami */
+}
+
+footer .kontakt-stopka a {
+    color: #b3ffb3; /* Jasny, widoczny kolor na ciemnym tle stopki */
     text-decoration: none;
+    display: flex; /* Flexbox dla ikony i tekstu */
+    align-items: center;
+}
+
+footer .kontakt-stopka a:hover {
+    text-decoration: underline;
+}
+
+footer .kontakt-stopka a .fas {
+    margin-right: 8px; /* Odstęp między ikoną a tekstem */
+    font-size: 1em;
 }
 
 /* --- Stylizacja Logo w nagłówku --- */
