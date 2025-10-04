@@ -95,3 +95,32 @@ footer {
         grid-template-columns: 1fr 1fr 1fr;
     }
 }
+
+/* --- Stylizacja szybkich linków kontaktowych w nagłówku --- */
+.kontakt-szybki {
+    margin-top: 10px;
+}
+
+.kontakt-szybki a {
+    color: white; /* Biały tekst, żeby pasował do tła nagłówka */
+    text-decoration: none; /* Usuń podkreślenie */
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+.kontakt-szybki a:hover {
+    text-decoration: underline;
+}
+
+/* Stylizacja kontaktów w stopce (jeśli potrzebne) */
+.kontakt-stopka {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #555;
+    display: block; /* Domyślny styl dla kontaktów w stopce */
+}
+
+.kontakt-stopka a {
+    color: #a0ffa0; /* Jasny, widoczny kolor na ciemnym tle stopki */
+    text-decoration: none;
+}
