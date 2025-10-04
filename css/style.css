@@ -190,7 +190,7 @@ footer .kontakt-stopka a .fas {
 
     .header-content-flex {
         flex-direction: row;
-        align-items: center; /* Domyślne centrowanie w pionie */
+        align-items: flex-start; /* Domyślne centrowanie w pionie */
 
         /* KLUCZOWE: Używamy "grid" dla łatwiejszego wyrównania kolumn,
            ale możemy też użyć flex z procentami szerokości */
