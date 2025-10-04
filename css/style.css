@@ -124,3 +124,18 @@ footer {
     color: #a0ffa0; /* Jasny, widoczny kolor na ciemnym tle stopki */
     text-decoration: none;
 }
+
+/* --- Stylizacja Logo w nagłówku --- */
+.logo {
+    max-width: 200px; /* Maksymalna szerokość logo */
+    height: auto; /* Zachowaj proporcje */
+    margin-bottom: 10px; /* Odstęp pod logo */
+}
+
+/* Możesz też wyśrodkować logo, jeśli header jest tekstowo wyśrodkowany */
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Wyśrodkuj elementy w kolumnie */
+    justify-content: center;
+}
