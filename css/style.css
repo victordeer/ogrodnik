@@ -198,4 +198,5 @@ footer .kontakt-stopka span {
     height: auto;
     margin: 0 auto;
     display: block;
+    border-radius: 8px;
 }
